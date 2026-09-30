@@ -1,0 +1,19 @@
+{
+  "dataset": "home-credit-credit-risk-model-stability",
+  "base": "parquet_files/{split}/{split}_base.parquet",
+  "tables": [
+    {
+      "name": "static",
+      "pattern": "parquet_files/{split}/{split}_static_0_*.parquet",
+      "kind": "one_to_one",
+      "numeric": ["credamount_770A", "numactivecreds_622L", "totaldebt_9A", "currdebt_22A"]
+    },
+    {
+      "name": "previous",
+      "pattern": "parquet_files/{split}/{split}_applprev_1_*.parquet",
+      "kind": "history",
+      "keys": ["case_id", "num_group1"],
+      "numeric": []
+    }
+  ]
+}
